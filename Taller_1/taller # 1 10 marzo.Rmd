@@ -1,0 +1,40 @@
+---
+title: 'Simulacion Taller # 1'
+author: "Cristian Bonilla - Sebastian Ceballos"
+date: '2022-03-10'
+output: pdf_document
+---
+
+```{r punto 1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1.	Al comparar los caracteres morfométricos de una especie de langostinos de gran importancia económica en Argentina se observaron diferencias de tamaño entre macho y hembra. En la siguiente tabla se presentan los datos (Largo total mm) de las morfometrías de machos y hembras obtenidos en diferentes recolectas (Ruiz & Mendia, 2008)
+
+A.	Haga un histograma con cinco clases y determine la distribución de los datos para cada sexo. Explique acerca de la distribución del tamaño para cada género. 
+
+b. Hallar el promedio y la desviación estándar para cada sexo. ¿Qué puede concluir? 
+c. Halle un intervalo para la media del Largo total por sexo con un nivel de confianza del 97%. Provea la inter¬pretación respectiva. 
+d. Construya un Boxplot por sexo e interprételo.
+
+
+
+
+```{r punto 2, include=FALSE}
+```
+## 2.	En un restaurante de la ciudad se sabe que la probabilidad de que se reciba un billete de $50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de $50.000, halle la probabilidad de que: 
+
+
+a. A lo sumo 25 billetes sean falsos.
+b. La cantidad de billetes falsos esté entre 20 y 30.
+c. Más de 10 sean falsos.
+
+
+```{r punto 2, include=FALSE}
+```
+## 3.Según un estudio del Departamento Nacional de Estadística -DANE-, la vida media para el quinquenio de 2010 a 2015 de los habitantes de Colombia es 76 años, con una varianza de 25. Se pretende hacer un estudio con el objetivo de extrapolar los resultados anteriores a una pequeña ciudad de 100.000 habitantes, considerando que el tiempo de sobrevida es normal.
+
+a. ¿Cuántos de los habitantes de la pequeña ciudad superarán previsiblemente los 92 años?
+b. ¿Cuántos vivirán menos de 55 años o más de 75 años?
+Nota: Para el punto 2 y 3 debe presentar la correspondiente gráfica de la distribución que corresponda.
+
