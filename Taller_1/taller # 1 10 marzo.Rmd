@@ -58,19 +58,89 @@ d.  Construya un Boxplot por sexo e interprételo.
 
 ```
 
-## 2. En un restaurante de la ciudad se sabe que la probabilidad de que se reciba un billete de \$50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de \$50.000, halle la probabilidad de que:
+## 2.	En un restaurante de la ciudad se sabe que la probabilidad de que se reciba un billete de $50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de $50.000, halle la probabilidad de que: 
 
-a.  A lo sumo 25 billetes sean falsos.
-b.  La cantidad de billetes falsos esté entre 20 y 30.
-c.  Más de 10 sean falsos.
+## X: Cantidad de billetes falsos por semana
 
-```{r punto 2, include=FALSE}
+a. A lo sumo 25 billetes sean falsos.
+
+es igual que decir que la probabilidad de obtener como minimo 25 billetes falsos lo cual es P (X >= 25)
+
+```{r punto 2 A, include=FALSE}
+
+pbinom(25,900,0.015)
+
+plot(0:25,(dbinom(0:25,900,0.015)),
+xlab="# de billetes falsos",
+ylab="Probabilidad de que a sumo 25 billetes sean falsos",
+title("Probabilidad de que a sumo 25 billetes sean falsos"),
+pch=16,
+col = "blue")
 ```
+R:/ La probabilidad de que a lo sumo 25 billetes sean falsos
+entre los 900 que reciben por semana es de 0.9985199
+
+b. La cantidad de billetes falsos esté entre 20 y 30.
+
+P (X = 30) - P ( X = 20)
+
+```{r punto 2 B, include=FALSE}
+
+#primero hallar la del numero mayor
+p1<- pbinom(30,900,0.015)
+##Luego hallar la del menor
+p2<-pbinom(20,900,0.015)
+## Y hallar la diferencia
+resultado <- p1-p2
+
+plot(0:30,(dbinom(0:30,900,0.015)),
+xlab="# de billetes falsos",
+ylab="Probabilidad de quehayan entre 20 y 30 billetes falsos",
+title("Probabilidad de quehayan entre 20 y 30 billetes falsos"),
+pch=16,
+col = "blue")
+
+```
+R: / La probabilidad de obtener billetes falsos entre 20 y 30 es del 0.03395
+
+c. Más de 10 sean falsos
+
+P (X >= 10)
+
+```{r punto 2 c, include=FALSE}
+
+pbinom(10,900,0.015,lower.tail = F)
+
+plot(0:30,(dbinom(0:30,900,0.015)),
+xlab="# de billetes falsos",
+ylab="Probabilidad de que hayan entre 20 y 30 billetes falsos",
+title("Probabilidad de quehayan entre 20 y 30 billetes falsos"),
+pch=16,
+col = "blue")
+
+```
+R: / La probabilidad de obtener mas de 10 billetes falsos es del 0.79078
 
 ## 3.Según un estudio del Departamento Nacional de Estadística -DANE-, la vida media para el quinquenio de 2010 a 2015 de los habitantes de Colombia es 76 años, con una varianza de 25. Se pretende hacer un estudio con el objetivo de extrapolar los resultados anteriores a una pequeña ciudad de 100.000 habitantes, considerando que el tiempo de sobrevida es normal.
 
+```{r punto 3, include=FALSE}
+mean=76
+sd=5
+n=100000
+
+```
 a.  ¿Cuántos de los habitantes de la pequeña ciudad superarán
     previsiblemente los 92 años?
+    
+```{r punto 3 A, include=FALSE}
+
+y=pnorm(93,mean,sd,lower.tail = F)
+valorEsperado=n*y
+
+
+```
+R:/ los habitantes de la pequeña ciudad que superarán los 92 años es del 33.69292
+
 b.  ¿Cuántos vivirán menos de 55 años o más de 75 años? Nota: Para el
     punto 2 y 3 debe presentar la correspondiente gráfica de la
     distribución que corresponda.
