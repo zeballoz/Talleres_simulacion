@@ -30,33 +30,100 @@ knitr::opts_chunk$set(echo = TRUE)
 
 : Tabla simple
 
-```{r punto 1 OrganizandoDatos, include=FALSE}
-
-hembras= c(183.2,182.5,166.8,184.1,190.0,196.3,183.0,178.1,193.3,204.3,204.3,187.3,176.5,180.4,185.8,179.0,184.3,189.3,188.3,189.2,195.5,186.8,189.1,202.4,202.2,203.1,210.8)
-
-machos = c(140.9,173.9,118.9,121.7,177.4,140.0,173.8,154.8,192.7,154.5,177.5,134.4,109.2,153.4,175.0,150.7,138.7,169.8,203.3,136.7,153.9,163.0,165.3,176.7,137.7,126.7,150.0)
-
-dataF = data.frame(hembras,machos)
-
-```
 
 A.  Haga un histograma con cinco clases y determine la distribución de
     los datos para cada sexo. Explique acerca de la distribución del
     tamaño para cada género.
 
-<!-- -->
+
+```{r punto 1 A, include=FALSE}
+
+hembras= c(183.2,182.5,166.8,184.1,190.0,196.3,183.0,178.1,193.3,204.3,204.3,187.3,176.5,180.4,185.8,179.0,184.3,189.3,188.3,189.2,195.5,186.8,189.1,202.4,202.2,203.1,210.8)
+
+machos = c(140.9,173.9,118.9,121.7,177.4,140.0,173.8,154.8,192.7,154.5,177.5,134.4,109.2,153.4,175.0,150.7,138.7,169.8,203.3,136.7,153.9,163.0,165.3,176.7,137.7,126.7,150.0)
+
+library(KernSmooth)
+
+
+#Histograma de 5 clases
+bin_width <- dpih(hembras)
+# Número de clases hembra
+numeroClasesHembra <- seq(min(hembras) - 5,
+             max(hembras) + 5, by =bin_width)
+
+hist(x=hembras, breaks = numeroClasesHembra, main = "frecuencia de peces hembras por tamaño", ylab = "Frecuencia")
+
+#distribuciones
+
+mediaHembras = mean(hembras)
+desviacionEstandarHembras=sd(hembras)
+dnorm(hembras, mediaHembras,desviacionEstandarHembras)
+
+mediaMachos = mean(machos)
+desviacionEstandarMachos=sd(machos)
+dnorm(hembras, mediaMachos,desviacionEstandarMachos)
+
+
+```
+R:/ Gracias al histograma de las hembras podemos concluir que gran parte de los peces hembras tiene un tamaño entre 180mm y 190mm.
+
+Gracias a la distribucion que se le hizo a los datos podemos deducir las hembras tienen una desviacion mucho mas homogenea o centralizada que la de los machos, devio a que esta es mucho mas extendida.
+
+
 
 b.  Hallar el promedio y la desviación estándar para cada sexo. ¿Qué
     puede concluir?
+```{r punto 1 B, include=FALSE}
+
+
+mean(hembras)
+sd(hembras)
+
+mean(machos)
+sd(machos)
+
+```
+R:/ De los datos de las hembras podemos concluir que tenemos un tamaño promedio de 189.4778 mm y que estos tamaños varian uno del otro de aproximadamente 10.2344mm.
+
+En el lado de los machos podemos ver que el promedio es mucho menor a comparacion al de las hembras, el cual fue de 154.4667mm con mas de 20mm de diferencias, y en cuando a la desviazacion de sus datos podemos ver que estan mucho mas dispersos los unos de los otros con un tamaño de diferencia aprox de 23.0646mm
+
 c.  Halle un intervalo para la media del Largo total por sexo con un
     nivel de confianza del 97%. Provea la inter¬pretación respectiva.
+    
+```{r punto 2, include=FALSE}
+
+z = 1.97
+nHembras = length(hembras)
+errorstHembras = desviacionEstandarHembras/ sqrt(nHembras)
+limiteInferiorHembras =mediaHembras - (z*errorstHembras)
+limiteSuperiorHembras =mediaHembras + (z*errorstHembras)
+data.frame(nHembras, mediaHembras,z,errorstHembras,limiteInferiorHembras,limiteSuperiorHembras)
+
+n = length(machos)
+errorst = desviacionEstandarHembras/ sqrt(n)
+limiteInferior =mediaMachos - (z*errorst)
+limiteSuperior =mediaMachos + (z*errorst)
+data.frame(n, mediaHembras,z,errorst,limiteInferior,limiteSuperior)
+
+```
+R:/ El intervalo de tamaño de las hembras donde se localiza el 97% de confianza esta entre 185.5976mm y 193.3579mm y para los machos esta entre 150.5865mm y 158.3468mm, con estos datos podemos deducir que hay un rango de tamaños para los dos intervalos cercanos a los 8mm dentro de los cuales esta la mayor probabilidad.
+
+
+
 d.  Construya un Boxplot por sexo e interprételo.
 
 ```{r punto 2, include=FALSE}
+boxplot(main = "Boxplot de el tamaño de las hembras",hembras, horizontal = TRUE)
+boxplot(main = "Boxplot de el tamaño de los machos",machos, horizontal = TRUE)
+
 
 
 
 ```
+R:/ Gracias a estos diagramas de cajas podemos entender y visualizar de mejor manera la distribucion de los datos, de igual forma podemos confirmar lo dicho en los puntos atenriores referente a lo compacto de los datos en el caso del tamaño de las hembras y lo extenso de los datos de los tamaños de los hombres
+Tambien podemos observar que la mediana en las dos figuras esta mucho mas cerca a el Q1, lo que nos afirma que en este sector tenemos mucha mas concentracion de datos y por ende se encuentra la moda
+
+
 
 ## 2.	En un restaurante de la ciudad se sabe que la probabilidad de que se reciba un billete de $50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de $50.000, halle la probabilidad de que: 
 
@@ -144,3 +211,21 @@ R:/ los habitantes de la pequeña ciudad que superarán los 92 años es del 33.6
 b.  ¿Cuántos vivirán menos de 55 años o más de 75 años? Nota: Para el
     punto 2 y 3 debe presentar la correspondiente gráfica de la
     distribución que corresponda.
+    
+```{r punto 3 B, include=FALSE}
+
+y55=pnorm(54,mean,sd)
+y75=pnorm(76,mean,sd,lower.tail = F)
+res=y55+y75
+#La probabilidad de los habitantes de la pequeña población de que vivan
+#menos de 55 años o más de 75 es de
+
+
+
+plot(55:95,dnorm(55:95,mean,sd),type="l",
+xlab="Edad de los habitantes",
+ylab="Probabilidad de las edades",
+main="Probabilidad de vivir menos de 55 años o más de 70 en el quinquenio 2010-2015",pch = 17)
+
+
+```
