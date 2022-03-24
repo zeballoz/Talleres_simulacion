@@ -1,0 +1,84 @@
+---
+title: 'UNIVERSIDAD DEL QUINDÍO
+PROGRAMA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+SIMULACIÓN Y TEORÍA DE LA DECISIÓN
+PARCIAL # 1
+'
+author: "Cristian Bonilla - Sebastian Ceballos"
+date: '24-03-2022'
+output: pdf_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r punto 1, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. La tabla mostrada contiene valores de población, en cientos de miles, de las diez ciudades más pobladas de cuatro países en el año 1967:
+
+|Argentina|EE.UU|Holanda|Japon|
+|---------|-----|-------|-----|
+|29.66| 77.81 | 8.68 | 110.21 |
+|7.61 | 35.50 | 7.31 | 32.14 |
+|6.35 |24.79 |6.02 |18.88|
+|4.10 |20.02 |2.64 |16.38|
+|3.80 |16.70 |1.75 |13.37|
+|2.75 |9.39 |1.72 |11.92|
+|2.70 |9.38 |1.51 |10.71|
+|2.69 |8.76 |1.42 |7.80|
+|2.51 |7.63 |1.31 |7.70|
+|2.44 |7.50 |1.29 |7.00|
+
+
+: Tabla simple
+
+
+A.  Construya un box-plot e identifique los puntos extremos.
+¿Cuáles son las características más sobresalientes? ¿Hay outliers?
+
+
+
+```{r punto 1 A, include=FALSE}
+
+```
+
+
+B.  Compare los centros de cada población, sus dispersiones y su simetría.
+¿Cuál es el país más homogéneamente habitado? ¿Cuáles son las características más sobresalientes? ¿Hay outliers?
+
+```{r punto 1 B, include=FALSE}
+
+
+
+
+
+```
+
+
+
+
+## 2.	. Avianca se encuentra estudiando la situación de venta de puesto en el vuelo Armenia – Bogotá puesto que ha identificado que el 2% de las personas que reservaron puesto, no se presentan a la hora del embarque. Teniendo en cuenta que el avión A320 utilizado en esta ruta tiene una capacidad para 180 pasajeros, la empresa decide vender 181 tiquetes. ¿Cuál es la probabilidad de que todas las personas que llegan a embarque puedan tener su silla asegurada y no se presenten quejas por “sobre-vender” sillas ante la aeronáutica civil? Asuma que las llegadas de los pasajeros siguen una distribución Poisson.
+
+
+
+```{r punto 2 , include=FALSE}
+
+
+
+
+```
+
+
+
+## 3.. Avianca se encuentra estudiando la situación de venta de puesto en el vuelo Armenia – Bogotá puesto que ha identificado que el 2% de las personas que reservaron puesto, no se presentan a la hora del embarque. Teniendo en cuenta que el avión A320 utilizado en esta ruta tiene una capacidad para 180 pasajeros, la empresa decide vender 181 tiquetes. ¿Cuál es la probabilidad de que todas las personas que llegan a embarque puedan tener su silla asegurada y no se presenten quejas por “sobre-vender” sillas ante la aeronáutica civil? Asuma que las llegadas de los pasajeros siguen una distribución Poisson.
+
+```{r punto 3, include=FALSE}
+
+
+
+
+
+```
+
