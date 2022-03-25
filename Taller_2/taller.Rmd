@@ -41,21 +41,81 @@ A.  Construya un box-plot e identifique los puntos extremos.
 
 
 ```{r punto 1 A, include=FALSE}
+poblacion = c(29.66, 77.81, 8.68, 110.21,
+7.61, 35.50, 7.31, 32.14,
+6.35, 24.79, 6.02, 18.88,
+4.10, 20.02, 2.64, 16.38,
+3.80, 16.70, 1.75, 13.37,
+2.75, 9.39, 1.72, 11.92,
+2.70, 9.38, 1.51, 10.71,
+2.69, 8.76, 1.42, 7.80,
+2.51, 7.63, 1.31, 7.70,
+2.44, 7.50, 1.29, 7.00)
+
+Argentina= c(29.66,7.61,6.35,4.10,3.80,2.75,2.70,2.69,2.51,2.44)
+EEUU = c(77.81,35.50,24.79,20.02,16.70,9.39,9.38,8.76,7.63,7.50)
+Holanda = c (8.68,7.31,6.02,2.64,1.75,1.72,1.51,1.42,1.31,1.29)
+Japon = c(110.21,32.14, 18.88,16.38,13.37,11.92,10.71,7.80,7.70,7.00)
+
+boxplot(Argentina,EEUU,Holanda,Japon,poblacion, horizontal = TRUE, main="Grafico de cbox-plot numero de poblacion por ciudad", xlab="numero de poblacion en cientos de miles",at = c(1,2,3,4,5),
+names = c("Arg", "EE.UU", "Hol", "Jap","Total"))
+
 
 ```
+R:/ Dentro de las caracterisitias mas sobresalientes del grafico encontramos su media la cual se inclina mayormente al Q1, tambien se deduce que gran parte de los datos frecuentan a estar muy cerca del limite inferior teniendo de esta forma un limite superiror muy alejado de la media.
 
+En cuanto a la comparacion por paises podemos ver que paises como argentina y holanda encuentran sus datos muy comprimidos, y paises como EE.UU y Japon unos datos mucho mas dispersos.
+
+Tambien podemos ver que paises como argentina EEE.UU y japon que poseen datos atipicos los cuales se salen de lo normal, como el de Japon el cual supera una poblacion mayor a los 10.000.000.
+
+
+  
+  
 
 B.  Compare los centros de cada población, sus dispersiones y su simetría.
 ¿Cuál es el país más homogéneamente habitado? ¿Cuáles son las características más sobresalientes? ¿Hay outliers?
 
 ```{r punto 1 B, include=FALSE}
 
+##medias
+mean(argentina)
+mean(EEUU)
+mean(Holanda)
+mean(Japon)
+
+##Rango
+max(Argentina)-min(Argentina)
+max(EEUU)-min(EEUU)
+max(Holanda)-min(Holanda)
+max(Japon)-min(Japon)
 
 
+##Varianza
+var(Argentina)
+var(EEUU)
+var(Holanda)
+var(Japon)
 
+##Desviacion estandar
+sd(Argentina)
+sd(EEUU)
+sd(Holanda)
+sd(Japon)
+
+##Coheficiente de variacion 
+
+sd(Argentina)/mean(argentina)
+sd(EEUU)/mean(EEUU)
+sd(Holanda)/mean(Holanda)
+sd(Japon)/mean(Japon)
 
 ```
+R:/ 
+Gracias al analisis que se le realizo a los diferentes grupos de datos se pudo deducir que la ciudad que esta habitada mas homogeneamente es la ciudad de EEUU debido a que su dispercion de datos no es tan grande y a sus pocos datos atipicos.
 
+Dentro de las caracterisiticas mas sobresalientes tenemos el rango de la poblacion de Japon el cual muy alto  debido a asimetria positiva tan extendida y a us valor atipico tan alto 
+
+Claramente podemos analizar que los grupos de datos poseen datos atipicos los cuales nnos muestran una asimetria extendida positiva, eceptuando al pais de holanda el cual no posee estas caracterisiticas.
 
 
 
