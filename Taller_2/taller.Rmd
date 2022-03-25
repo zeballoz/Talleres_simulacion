@@ -61,24 +61,40 @@ B.  Compare los centros de cada población, sus dispersiones y su simetría.
 
 ## 2.	. Avianca se encuentra estudiando la situación de venta de puesto en el vuelo Armenia – Bogotá puesto que ha identificado que el 2% de las personas que reservaron puesto, no se presentan a la hora del embarque. Teniendo en cuenta que el avión A320 utilizado en esta ruta tiene una capacidad para 180 pasajeros, la empresa decide vender 181 tiquetes. ¿Cuál es la probabilidad de que todas las personas que llegan a embarque puedan tener su silla asegurada y no se presenten quejas por “sobre-vender” sillas ante la aeronáutica civil? Asuma que las llegadas de los pasajeros siguen una distribución Poisson.
 
+X : numero de sillas vedidas y aseguradas sin sobreventa
 
+lambda : 2 % de 181 tiquetes = 3.62
+
+K = 180
+
+por lo tanto la probabilidad buscada es P [X <= 180] lo que es igual a obtener P [X = 180]
 
 ```{r punto 2 , include=FALSE}
-
-
+lambda<-3.62
+x<-180
+ppois(x,lambda, lower.tail = TRUE)
 
 
 ```
+ R:/ La probabilidad de que todas las personas que llegan a embarque puedan tener su silla asegurada y no se presenten quejas por sobrevuelo es demasiado cerca al 1 lo que se aproxima al 100%
 
 
+## 3.. En la planta envasadora de Coca-Cola FEMSA ubicada en Tocancipá se realiza el embotellado de la CocaCola presentación de 400 mL (en promedio), con una desviación estándar de 5 mL (mililitros). Si se sabe por experiencia que este proceso de embotellado sigue una distribución normal, y también se sabe que todo producto con más de 415 mL es declarado como NO CONFORME. Determine el porcentaje de las botellas de gaseosa que son declaradas producto NO CONFORME.
 
-## 3.. Avianca se encuentra estudiando la situación de venta de puesto en el vuelo Armenia – Bogotá puesto que ha identificado que el 2% de las personas que reservaron puesto, no se presentan a la hora del embarque. Teniendo en cuenta que el avión A320 utilizado en esta ruta tiene una capacidad para 180 pasajeros, la empresa decide vender 181 tiquetes. ¿Cuál es la probabilidad de que todas las personas que llegan a embarque puedan tener su silla asegurada y no se presenten quejas por “sobre-vender” sillas ante la aeronáutica civil? Asuma que las llegadas de los pasajeros siguen una distribución Poisson.
+Media: 400
+
+sd: 5
+
+n: 415
 
 ```{r punto 3, include=FALSE}
 
+mean=400
+sd=5
+n=415
 
+p415=pnorm(n,mean,sd,lower.tail = FALSE, log.p = FALSE)
 
-
-
+p415 * 100
 ```
-
+R:/ el porcentaje de las botellas de gaseosa que son declaradas como producto NO CONFORME es del 0,13499 %
